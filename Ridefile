@@ -1,0 +1,28 @@
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Ridefile {
+    public Ridefile() {
+    }
+
+    public Map<String, Float> rideFile() {
+        HashMap map = new HashMap();
+
+        try {
+            Scanner scn = new Scanner(new File("res//value.txt"));
+
+            while(scn.hasNext()) {
+                map.put(scn.next(), Float.valueOf(scn.next()));
+            }
+
+            scn.close();
+        } catch (Exception var4) {
+            System.out.println("файл не найден, "+4.getMessage());
+        }
+
+        return map;
+    }
+}
